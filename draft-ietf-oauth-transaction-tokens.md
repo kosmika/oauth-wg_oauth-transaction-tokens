@@ -314,13 +314,13 @@ JWT claims as well as defines new claims. These claims are described below:
 : REQUIRED This claim represents the principal of the transaction as defined by Section 4.1.2 of {{RFC7519}}. The value MUST be unique within the context of the `aud` Trust Domain. Note: Unlike OpenID Connect, the `sub` claim is NOT associated with the `iss` claim.
 
 `scope`:
-: REQUIRED The scope claim is defined in {{Section 4.2 of RFC8693}}. Note that the value of this claim is determined by the TTS and is not required to match the requested scope nor the scope in any supplied external token.
+: REQUIRED The scope claim is defined in {{Section 4.2 of RFC8693}}. Note that the value of this claim is determined by the TTS and is not required to match the requested scope nor the scope in any supplied external token. For additional context please refer to {{scope-claim}}
 
 `tctx`:
-: OPTIONAL A JSON object that contains values that remain immutable throughout the Call Chain.
+: RECOMMENDED A JSON object that contains values that remain immutable throughout the Call Chain. For additional context please refer to {{requester-context}}
 
 `rctx`:
-: OPTIONAL A JSON object that describes the environmental context of the requested transaction.
+: RECOMMENDED A JSON object that describes the environmental context of the requested transaction. For additional context please refer to {{transaction-context}}
 
 `req_wl`:
 : REQUIRED. A string value that identifies the workload that requested the Txn-Token. The value SHOULD contain a single workload identifier. In some circumstances, the value MAY contain multiple workload identifiers with each identifier separated by a comma (,).
@@ -708,6 +708,8 @@ The authors would like to thank John Bradley, Kelley Burgin, Brian Campbell, Nav
 
 * Clarify transaction tokens vs OAuth 2.0 access tokens
 * Merged Overview and Introduction sections (see https://github.com/oauth-wg/oauth-transaction-tokens/issues/327)
+
+* Updated JWT body claims from OPTIONAL to RECOMMENDED (see https://github.com/oauth-wg/oauth-transaction-tokens/issues/330)
 
 
 
